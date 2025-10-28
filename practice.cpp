@@ -4,7 +4,7 @@
 int  main(){
     int i=0, num = 0, temp1 = 0, maths = 0, science = 0, english = 0, total = 0;
     float avg = 0.0;
-    std::string temp = "", grade = "";
+    std::string temp = "", grade = "", searchname = "";
     std::vector <int> totalmarks;
     std::vector <float> avgmarks;
     std::vector <std::string> Grade;
@@ -45,4 +45,26 @@ int  main(){
    for (i = 0; i < num; i++){
        std::cout << i+1 << ") Name: " << name[i] << " | " << "Age: " << age[i] << " | " << "Total: " << totalmarks[i] << " | " << "Avg: " << avgmarks[i] << " | "<< "Grade: " << Grade[i] << "\n";
    }
+    std::cout << "Do you want to search a student? reply with y/n: ";
+    std::cin >> temp;
+    std::cout << "\n";
+    if (temp == "y" || temp == "Y"){
+        std::cout << "Please enter the student name you wish to retreive: ";
+        std::cin >> searchname;
+        std::cout << "\n";
+        bool found = false;
+        for (i = 0; i < num; i++){
+            if (name[i] == searchname){
+                std::cout << "Student details found.\n" << "Name: " << name[i] << " | " << "Age: " << age[i] << " | " << "Total: " << totalmarks[i] << " | " << "Avg: " << avgmarks[i] << " | "<< "Grade: " << Grade[i] << "\n";
+                found = true;
+                return 0;
+            }
+        }
+            if (!found){
+                std::cout << "No such student found.\n";
+            }
+    }
+    else{
+        return 0;
+    }
 }
